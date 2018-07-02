@@ -1,0 +1,26 @@
+{
+  "name": "socketio_chat",
+  "version": "1.0.0",
+  "description": "real time wep app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amaduela/n_socket.git"
+  },
+  "keywords": [
+    "node",
+    "socketio",
+    "syncronous",
+    "chat",
+    "sockets"
+  ],
+  "author": "Anselmo Maduela",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amaduela/n_socket/issues"
+  },
+  "homepage": "https://github.com/amaduela/n_socket#readme"
+}
