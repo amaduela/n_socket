@@ -14,8 +14,8 @@
     <link rel="shortcut icon" href="https://getbootstrap.com/favicon.ico" type="image/x-icon">
     <style>
         form {position: fixed; bottom: 0; width: 85%;}
-        #messages {list-style: none;}
-        #messages li { padding: 5px 10px}
+        #messages {list-style: none; width: 95%}
+        #messages li { padding: 5px}
         #messages li:nth-child(odd) {background: cornsilk}
     </style>
 </head>
@@ -74,7 +74,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
-                        <form action="" method="post">
+                        <form action="">
                             <div class="input-group mb-3">
                                 <input type="text" id="m" autocomplete="off" class="form-control" placeholder="Message ..." aria-label="Message ..." aria-describedby="basic-addon2">
                                 <div class="input-group-append">
@@ -96,10 +96,15 @@
         crossorigin="anonymous"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-        const socket = io.connect('http://localhost:3000');
-        socket.on('message', (data) => {
-            console.log(data);
-            socket.emit('another event', { jeremy: 'I am great thank you' });
+        const socket = io();
+        $('form').submit(() => {
+            socket.emit('message', $('#m').val());
+            $('#m').val('');
+            return false;
+        });
+
+        socket.on('message', (msg) => {
+            $('#messages').append($('<li>').text(msg));
         })
     </script>
 </body>
