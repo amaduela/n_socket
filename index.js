@@ -1,5 +1,5 @@
 const app = require("express")();
-const server =  require('http').server(app);
+const server =  require('http').Server(app);
 const io = require('socket.io')(server);
 const port = 3000;
 
@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
 
-io.onconnection('connection', (socket) => {
+io.on('connection', (socket) => {
     console.log('user connected!');
     socket.emit('message', {many: 'Hey how are you?'});
     socket.on('another event', (data) => {

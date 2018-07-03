@@ -7,6 +7,15 @@
     <title>Chat app</title>
 </head>
 <body>
+   
     
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io.connect('http://localhost:3000');
+        socket.on('message', (data) => {
+            console.log(data);
+            socket.emit('another event', {jeremy: 'I am great thank you'});
+        })
+    </script>
 </body>
 </html>
