@@ -97,6 +97,8 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
         const socket = io();
+        const user = prompt('Enter your UserName');
+
         $('form').submit(() => {
             socket.emit('message', $('#m').val());
             $('#m').val('');
@@ -104,11 +106,11 @@
         });
 
         socket.on('connect', () => {
-            socket.emit('message', 'user connected');
+            socket.emit('message', `User is connected`);
         });
 
         socket.on('message', (msg) => {
-            $('#messages').append($('<li>').text(msg));
+            $('#messages').append($('<li>').text(`[${user}]: ${msg}`));
         })
     </script>
 </body>
