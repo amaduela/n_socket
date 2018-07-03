@@ -96,7 +96,7 @@
         crossorigin="anonymous"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-        const socket = io();
+        const socket = io('/tech');
         const user = prompt('Enter your UserName');
 
         $('form').submit(() => {
